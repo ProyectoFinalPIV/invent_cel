@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+//Clase CreateUsersTable extendida de la clase Migration
 class CreateUsersTable extends Migration
 {
     /**
@@ -11,6 +12,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
+    //Método Up indica a Migratión crear tabla Users
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
@@ -29,6 +31,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
+    //Método Down indica revertir la Migratión eliminar tabla
     public function down()
     {
         Schema::dropIfExists('users');
