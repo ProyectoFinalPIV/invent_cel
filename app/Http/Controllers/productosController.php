@@ -4,6 +4,10 @@
 |--------------------------------------------------------------------------
 | Controladores --> este va luego de la creacion de rutas en routes/web.php
 |--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
+| Luego de trabajar en este archivo ir a app/resources/views y crear la
+| carpeta producto con sus respectivos archivo (create, edit e index)
+|--------------------------------------------------------------------------
 */
 
 namespace App\Http\Controllers;
@@ -87,7 +91,7 @@ class productosController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza el recurso especificado en el almacenamiento.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -95,6 +99,10 @@ class productosController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*request()->validate([
+            'comu_nomb' => 'required|min:5',
+            'muni_codi' => 'required'
+        ]);*/
         $producto = Producto::findOrFail($id);
         $producto->fill($request->all());
         $producto->save();
@@ -102,7 +110,7 @@ class productosController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar el recurso especificado del almacenamiento.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
