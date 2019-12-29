@@ -82,7 +82,8 @@ class productosController extends Controller
     public function edit($id)
     {
         $producto = Producto::findOrFail($id);
-        return view('producto.edit', compact('producto'));
+        $stocks= Stocks::orderBY('id_Invent')->get();
+        return view('producto.edit', compact('producto','stocks'));
     }
 
     /**
